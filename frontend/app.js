@@ -1,3 +1,4 @@
+const API_URL = "https://api-consolas-retro.onrender.com";
 let idEnEdicion = null;
 
 function mostrarConsolas(consolas) {
@@ -38,7 +39,7 @@ function mostrarConsolas(consolas) {
       const confirmado = confirm(`¿Seguro que quieres eliminar la consola "${consola.nombre}"?`);
 
       if (confirmado) {
-        fetch(`http://localhost:3000/consolas/${consola.id}`, {
+        fetch(`${API_URL}/consolas/${consola.id}`, {
           method: "DELETE"
         })
         .then(function(respuesta) {
@@ -74,7 +75,7 @@ function mostrarConsolas(consolas) {
 }
 
 function cargarConsolas() {
-  fetch('http://localhost:3000/consolas')
+  fetch(`${API_URL}/consolas`)
     .then(function(response) {
       return response.json();
     })
@@ -97,8 +98,8 @@ document.getElementById("form-consola").addEventListener("submit", function(even
   };
 
   const url = idEnEdicion
-    ? `http://localhost:3000/consolas/${idEnEdicion}`
-    : "http://localhost:3000/consolas";
+    ? `${API_URL}/consolas/${idEnEdicion}`
+    : `${API_URL}/consolas`;
 
   const metodo = idEnEdicion ? "PUT" : "POST";
 

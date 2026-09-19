@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const puerto = 3000;
+const puerto = process.env.PORT || 3000;
 const db = require("./db"); // Importar la base de datos
 const cors = require("cors");
 app.use(express.json()); // Middleware para parsear JSON
