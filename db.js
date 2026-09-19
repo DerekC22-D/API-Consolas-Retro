@@ -1,3 +1,5 @@
+const Database = require("better-sqlite3");
+const db = new Database("consolas.db");
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS consolas (
@@ -9,8 +11,6 @@ db.exec(`
     imagen TEXT
   )
 `);
-
-module.exports = db;
 
 const cantidad = db.prepare("SELECT COUNT(*) as total FROM consolas").get();
 
@@ -25,5 +25,5 @@ if (cantidad.total === 0) {
   insertar.run("Xbox 360", 2005, "Microsoft", "Sobremesa", "img/xbox_360.jpg");
   insertar.run("GameCube", 2001, "Nintendo", "Sobremesa", "img/gamecube.jpg");
 }
-const Database = require("better-sqlite3");
-const db = new Database("consolas.db");
+
+module.exports = db;
