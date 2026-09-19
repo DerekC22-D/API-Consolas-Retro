@@ -1,3 +1,17 @@
+
+db.exec(`
+  CREATE TABLE IF NOT EXISTS consolas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT,
+    año INTEGER,
+    fabricante TEXT,
+    tipo TEXT,
+    imagen TEXT
+  )
+`);
+
+module.exports = db;
+
 const cantidad = db.prepare("SELECT COUNT(*) as total FROM consolas").get();
 
 if (cantidad.total === 0) {
@@ -13,16 +27,3 @@ if (cantidad.total === 0) {
 }
 const Database = require("better-sqlite3");
 const db = new Database("consolas.db");
-
-db.exec(`
-  CREATE TABLE IF NOT EXISTS consolas (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nombre TEXT,
-    año INTEGER,
-    fabricante TEXT,
-    tipo TEXT,
-    imagen TEXT
-  )
-`);
-
-module.exports = db;
