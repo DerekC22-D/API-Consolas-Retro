@@ -1,8 +1,12 @@
 const express = require("express");
 const app = express();
-app.use(express.json()); // Middleware para parsear JSON
 const puerto = 3000;
 const db = require("./db"); // Importar la base de datos
+const cors = require("cors");
+app.use(express.json()); // Middleware para parsear JSON
+app.use(cors()); // Middleware para permitir solicitudes desde cualquier origen
+
+
 
 app.get("/consolas", function(req, res) { // Ruta para obtener todas las consolas
   const consolas = db.prepare("SELECT * FROM consolas").all(); // Obtener todas las consolas de la base de datos

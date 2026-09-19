@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consolas Retro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="contenido">
+    <!-- título -->
+    <!-- botón -->
+    <!-- formulario -->
+    <!-- lista de consolas -->
+</div>
+
+  <video class="video-fondo" autoplay muted loop playsinline>
+    <source src="fondo.mp4" type="video/mp4">
+</video>
+
+<div class="contenido">
+    ...
+</div>
+
+    <h1>Catálogo de Consolas Retro</h1>
+    <button id="btn-mostrar-form">Nueva consola</button>
+
+<form id="form-consola" class="oculto">
+  <input type="text" id="nombre" placeholder="Nombre" required>
+  <input type="number" id="año" placeholder="Año" required>
+  <input type="text" id="fabricante" placeholder="Fabricante" required>
+  <select id="tipo" required>
+    <option value="" disabled selected>Selecciona el tipo</option>
+    <option value="Sobremesa">Sobremesa</option>
+    <option value="Portátil">Portátil</option>
+  </select>
+  <input type="text" id="imagen" placeholder="Ruta de la imagen" required>
+  <button type="submit" id="btn-submit-form">Agregar consola</button>
+</form>
+    <div id="lista-consolas"></div>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
